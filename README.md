@@ -4,6 +4,7 @@
 The **SOC 24/7 Repository** provides a comprehensive guide to building, automating, and optimizing a **Security Operations Center (SOC)** that operates 24/7. This repository covers **SOC architecture, threat detection playbooks, automation, dashboards, and best practices** aligned with industry security standards such as **NIST 800-61, ISO 27035, MITRE ATT&CK, and CIS Controls.**
 
 ## 🚀 **Key Features**
+
 ✔ **SOC Infrastructure & Design** – SIEM, SOAR, EDR, IDS/IPS, Threat Intelligence Feeds  
 ✔ **Detection & Response Playbooks** – Phishing, Ransomware, Insider Threats, Supply Chain Attacks  
 ✔ **SOC Automation Scripts** – Python, PowerShell, Ansible scripts for automated response  
@@ -69,6 +70,7 @@ SOC-24-7/
 ---
 
 ## 🔥 **How to Use This Repository**
+
 1️⃣ **Understand SOC Architecture** → Start with `01_SOC_Architecture.md` to design a robust SOC infrastructure.  
 2️⃣ **Implement Threat Detection & Response** → Use `02_Detection_Response_Playbooks.md` to handle cybersecurity incidents.  
 3️⃣ **Automate Security Operations** → Deploy `03_SOC_Automation.md` scripts for faster incident response.  
@@ -81,6 +83,7 @@ SOC-24-7/
 
 ## 📡 **Technology Stack**
 The repository integrates leading **SOC technologies and tools** for security operations:
+
 ✔ **SIEM:** Splunk, Elastic Stack (ELK), IBM QRadar  
 ✔ **SOAR:** Palo Alto Cortex XSOAR, Splunk Phantom, Microsoft Sentinel  
 ✔ **EDR/XDR:** CrowdStrike Falcon, SentinelOne, Microsoft Defender ATP  
@@ -92,6 +95,7 @@ The repository integrates leading **SOC technologies and tools** for security op
 
 ## 📜 **Security Framework Alignment**
 The methodologies in this repository align with:
+
 ✔ **NIST 800-61** - Incident Handling & Response  
 ✔ **ISO/IEC 27035** - Incident Management  
 ✔ **MITRE ATT&CK** - Threat Hunting & Detection  
