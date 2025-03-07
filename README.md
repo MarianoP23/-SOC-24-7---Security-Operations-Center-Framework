@@ -69,12 +69,12 @@ SOC-24-7/
 ---
 
 ## 🔥 **How to Use This Repository**
-1️⃣ **Understand SOC Architecture** → Start with `01_SOC_Architecture/` to design a robust SOC infrastructure.  
-2️⃣ **Implement Threat Detection & Response** → Use `02_Detection_Response_Playbooks/` to handle cybersecurity incidents.  
-3️⃣ **Automate Security Operations** → Deploy `03_SOC_Automation/` scripts for faster incident response.  
-4️⃣ **Follow Operational Best Practices** → Use `04_Operational_Procedures/` for MTTD, MTTR, and escalation policies.  
-5️⃣ **Enhance Threat Hunting Capabilities** → Use queries from `05_Threat_Hunting_Frameworks/`.  
-6️⃣ **Monitor Security Events in Real-Time** → Build dashboards from `06_Dashboards_Visibility/`.  
+1️⃣ **Understand SOC Architecture** → Start with `01_SOC_Architecture.md` to design a robust SOC infrastructure.  
+2️⃣ **Implement Threat Detection & Response** → Use `02_Detection_Response_Playbooks.md` to handle cybersecurity incidents.  
+3️⃣ **Automate Security Operations** → Deploy `03_SOC_Automation.md` scripts for faster incident response.  
+4️⃣ **Follow Operational Best Practices** → Use `04_Operational_Procedures.md` for MTTD, MTTR, and escalation policies.  
+5️⃣ **Enhance Threat Hunting Capabilities** → Use queries from `05_Threat_Hunting_Frameworks.md`.  
+6️⃣ **Monitor Security Events in Real-Time** → Build dashboards from `06_Dashboards_Visibility.md`.  
 7️⃣ **Define SOC Team Roles & Training** → Leverage `07_Roles_Responsibilities/` & `08_Additional_Resources/`.  
 
 ---
