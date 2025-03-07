@@ -23,37 +23,37 @@ SOC-24-7/
 ├── README.md  # Main Overview of the Repository
 │
 ├── 01_SOC_Architecture/  
-│   ├── SOC_Design_Best_Practices.md
-│   ├── SIEM_SOAR_Integration.md
-│   ├── Network_Segmentation_Security.md
-│   ├── Diagrams/
+│   ├── SOC_Design_Best_Practices
+│   ├── SIEM_SOAR_Integration
+│   ├── Network_Segmentation_Security
+│  
 │
-├── 02_Detection_Response_Playbooks/
-│   ├── Phishing_Response_Playbook.md
-│   ├── Ransomware_Response_Playbook.md
-│   ├── Insider_Threat_Playbook.md
-│   ├── Cloud_Attacks_Playbook.md
+├── 02_Detection_Response_Playbooks.MD
+│   ├── Phishing_Response_Playbook
+│   ├── Ransomware_Response_Playbook
+│   ├── Insider_Threat_Playbook
+│   ├── Cloud_Attacks_Playbook
 │   ├── Playbook_Templates/
 │
-├── 03_SOC_Automation/
-│   ├── Python_Scripts/
-│   ├── PowerShell_Scripts/
-│   ├── Ansible_Playbooks/
+├── 03_SOC_Automation.MD
+│   ├── Python_Scripts
+│   ├── PowerShell_Scripts
+│   ├── Ansible_Playbooks
 │
-├── 04_Operational_Procedures/
-│   ├── MTTD_MTTR_KPIs.md
-│   ├── Incident_Response_Processes.md
-│   ├── Escalation_Policies.md
+├── 04_Operational_Procedures.md
+│   ├── MTTD_MTTR_KPIs
+│   ├── Incident_Response_Processes
+│   ├── Escalation_Policies
 │
-├── 05_Threat_Hunting_Frameworks/
-│   ├── Splunk_Hunting_Queries.md
-│   ├── CrowdStrike_Hunting_Queries.md
-│   ├── ELK_Hunting_Queries.md
-│   ├── Adversary_TTPs_Tracking.md
+├── 05_Threat_Hunting_Frameworks.md
+│   ├── Splunk_Hunting_Queries
+│   ├── CrowdStrike_Hunting_Queries
+│   ├── ELK_Hunting_Queries
+│   ├── Adversary_TTPs_Tracking
 │
-├── 06_Dashboards_Visibility/
-│   ├── SOC_Dashboard_Design.md
-│   ├── SIEM_Dashboard_Queries.md
+├── 06_Dashboards_Visibilit.md
+│   ├── SOC_Dashboard_Design
+│   ├── SIEM_Dashboard_Queries
 │
 ├── 07_Roles_Responsibilities/
 │   ├── SOC_Team_Structure.md
@@ -64,10 +64,6 @@ SOC-24-7/
 │   ├── SOC_Certification_Roadmaps.md
 │   ├── Internal_Technical_Training.md
 │   ├── Recommended_Cybersecurity_Courses.md
-│
-└── assets/
-    ├── images/
-    ├── diagrams/
 ```
 
 ---
@@ -119,6 +115,7 @@ The methodologies in this repository align with:
 
 ## 🛠 **Contributing**
 We welcome contributions to improve SOC operations! To contribute:
+
 1️⃣ **Fork this repository** and make changes.  
 2️⃣ **Submit a pull request (PR)** with a detailed explanation.  
 3️⃣ **Follow best practices** when adding scripts or playbooks.  
@@ -126,6 +123,7 @@ We welcome contributions to improve SOC operations! To contribute:
 ---
 
 ## 📢 **Next Steps & Future Improvements**
+
 ✅ **Enhance SOC automation** with advanced AI-driven threat detection.  
 ✅ **Improve integration** with ITSM platforms (ServiceNow, Jira) for incident tracking.  
 ✅ **Refine threat hunting models** using machine learning and behavioral analytics.  
