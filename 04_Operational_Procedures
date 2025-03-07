@@ -1,0 +1,130 @@
+# Operational Procedures: MTTD, MTTR, Escalation Policies, and KPIs
+
+## **1. Mean Time to Detect (MTTD)**
+
+### **Definition:**
+MTTD measures the average time it takes for the SOC to detect a security incident after it occurs.
+
+### **Formula:**
+```
+MTTD = Total Detection Time for All Incidents / Total Number of Incidents
+```
+
+### **Best Practices to Reduce MTTD:**
+- Implement **SIEM correlation rules** for faster anomaly detection.
+- Utilize **Threat Intelligence Feeds** to proactively detect Indicators of Compromise (IoCs).
+- Automate **alert triage and prioritization** to avoid detection delays.
+- Leverage **User and Entity Behavior Analytics (UEBA)** to detect anomalies.
+- Adopt **MITRE ATT&CK** techniques to map adversary behaviors.
+
+### **SOC Benchmark:**
+- **<30 minutes** for critical incidents.
+
+---
+
+## **2. Mean Time to Respond (MTTR)**
+
+### **Definition:**
+MTTR measures the average time it takes to contain and remediate a security incident after detection.
+
+### **Formula:**
+```
+MTTR = Total Response Time for All Incidents / Total Number of Incidents
+```
+
+### **Best Practices to Reduce MTTR:**
+- Automate **incident containment** (e.g., isolate infected endpoints, disable compromised accounts).
+- Establish **incident response playbooks** for common attack scenarios.
+- Conduct **SOC drills and tabletop exercises** to optimize response strategies.
+- Utilize **Security Orchestration, Automation, and Response (SOAR)** tools to speed up response.
+- Follow **NIST 800-61** guidelines for structured incident response.
+
+### **SOC Benchmark:**
+- **<60 minutes** for critical incidents.
+
+---
+
+## **3. Escalation Policies**
+
+### **Objective:**
+Ensure that security incidents are escalated appropriately based on severity and impact.
+
+### **Industry Best Practices (ISO/IEC 27035, NIST 800-61):**
+- Define **incident severity levels** aligned with business impact analysis.
+- Establish **clear communication channels** for escalation.
+- Use **pre-approved incident handling procedures** for quick resolution.
+
+### **Incident Severity Levels:**
+| **Level** | **Description** | **Escalation Path** |
+|-----------|----------------|------------------|
+| **Low (L1)** | Minor security alerts requiring no immediate action | SOC Analyst → Log for Review |
+| **Medium (L2)** | Potential security breaches requiring analyst review | SOC Analyst → SOC Supervisor |
+| **High (L3)** | Confirmed security incident with operational impact | SOC Supervisor → Incident Response Team |
+| **Critical (L4)** | Major security incident affecting business continuity | Incident Response Team → CISO → Executive Management |
+
+### **Escalation Timelines:**
+- **L1:** Reviewed within **24 hours**
+- **L2:** Investigated within **6 hours**
+- **L3:** Mitigated within **2 hours**
+- **L4:** Immediate escalation within **15 minutes**
+
+### **Response Workflow (ISO/IEC 27035 & NIST 800-61):**
+1. **Detection & Reporting** → Security event is detected and reported.
+2. **Assessment & Triage** → Analyst evaluates the severity and potential impact.
+3. **Containment** → Immediate steps taken to prevent further damage.
+4. **Investigation & Analysis** → Determine the root cause and scope of impact.
+5. **Eradication & Recovery** → Remove the threat and restore operations securely.
+6. **Post-Incident Review** → Analyze incident lessons and update response plans.
+
+---
+
+## **4. Incident Response Plan (Based on NIST 800-61 & ISO/IEC 27035)**
+
+### **Objective:**
+Provide a structured approach to handling security incidents, minimizing damage, and ensuring business continuity.
+
+### **Key Phases:**
+| **Phase** | **Description** |
+|-----------|----------------|
+| **Preparation** | Establish policies, procedures, tools, and training for incident handling. |
+| **Detection & Analysis** | Identify security events, assess impact, and classify incidents. |
+| **Containment, Eradication & Recovery** | Isolate affected systems, remove threats, and restore services securely. |
+| **Post-Incident Activity** | Conduct incident post-mortem analysis and improve security posture. |
+
+### **Incident Categories:**
+| **Category** | **Examples** |
+|-------------|-------------|
+| Malware | Ransomware, worms, trojans |
+| Phishing | Email scams, credential theft |
+| Denial-of-Service | DDoS, network flooding |
+| Unauthorized Access | Insider threats, privilege escalation |
+| Data Breach | Personal or corporate data exposure |
+
+### **Best Practices:**
+- Follow **ISO/IEC 27035** for structured incident handling and lessons learned.
+- Implement **playbooks** for each category of incident.
+- Conduct **regular incident response training and exercises.**
+
+---
+
+## **5. Key Performance Indicators (KPIs)**
+
+### **Objective:**
+Measure SOC efficiency and effectiveness in handling security incidents.
+
+### **Essential SOC KPIs:**
+| **KPI** | **Description** | **Target Benchmark** |
+|------------|---------------------------------|------------------|
+| **MTTD** | Time taken to detect incidents | <30 minutes |
+| **MTTR** | Time taken to contain and remediate threats | <60 minutes |
+| **False Positive Rate** | Percentage of false alerts out of total alerts | <5% |
+| **Incident Closure Rate** | Percentage of incidents resolved within SLA | >95% |
+| **SOC Coverage** | Percentage of security logs monitored | >98% |
+| **Automation Efficiency** | Percentage of incidents handled via automation | >50% |
+
+### **SOC Performance Monitoring Strategies:**
+- Conduct **monthly incident reviews** to analyze detection and response efficiency.
+- Implement **SIEM dashboards** to visualize incident trends and response times.
+- Use **machine learning models** to predict and improve detection accuracy.
+
+---

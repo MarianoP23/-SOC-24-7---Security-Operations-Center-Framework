@@ -1,0 +1,111 @@
+# SOC Detection & Response Playbooks
+
+## Overview
+Detection & Response Playbooks provide **step-by-step guidance** for handling security incidents in a **structured and repeatable manner**. These playbooks align with industry standards such as **NIST 800-61 (Incident Handling Guide), MITRE ATT&CK, ISO 27035 (Incident Management), CIS Controls, and PCI DSS**. Each playbook ensures **rapid response, containment, and remediation** while minimizing business impact.
+
+---
+
+## **1. Phishing Attack Playbook**
+
+### **Objective**
+Detect, analyze, contain, and remediate **phishing emails and credential harvesting attempts** targeting employees.
+
+### **Detection Methods**
+- **SIEM Rules:** Monitor for mass suspicious emails containing malicious URLs or attachments.
+- **Email Security Gateway:** Detects known phishing domains.
+- **User Reports:** Employees report suspicious emails via phishing simulation tools (e.g., Microsoft Defender, Proofpoint, Mimecast).
+- **Threat Intelligence Feeds:** Check phishing URLs against databases like PhishTank and VirusTotal.
+
+### **Incident Response Steps**
+1. **Detection & Identification**
+   - Validate phishing email reports.
+   - Extract and analyze email headers.
+   - Check URLs using **sandbox analysis** and **threat intelligence feeds**.
+2. **Containment**
+   - Block phishing domains in **email security tools (Proofpoint, Mimecast, Microsoft Defender)**.
+   - Blacklist malicious IPs in **firewalls (Palo Alto, FortiGate, Cisco Firepower)**.
+   - Force password reset for targeted users.
+3. **Eradication & Recovery**
+   - Remove phishing emails from inboxes via **email security tools**.
+   - Scan affected workstations using **CrowdStrike Falcon, SentinelOne, Microsoft Defender**.
+   - Check for unauthorized account access in **IAM systems (Okta, Microsoft Entra ID)**.
+4. **Lessons Learned & Reporting**
+   - Conduct user training for phishing awareness.
+   - Update security controls based on **attack TTPs (MITRE ATT&CK T1566)**.
+   - Report the incident per **ISO 27035 and NIST guidelines**.
+
+---
+
+## **2. Ransomware Attack Playbook**
+
+### **Objective**
+Detect, contain, and remediate **ransomware attacks** to minimize data loss and operational disruption.
+
+### **Detection Methods**
+- **SIEM Rules:** Detect sudden file encryption, high CPU usage, and anomalous SMB traffic.
+- **EDR Alerts:** Monitor for **fileless malware, process injection (MITRE ATT&CK T1055), and persistence mechanisms (T1547).**
+- **Network IDS/IPS:** Identify **C2 traffic (MITRE ATT&CK T1071)** to known ransomware servers.
+- **User Reports:** Employees report files encrypted with unknown extensions.
+
+### **Incident Response Steps**
+1. **Detection & Identification**
+   - Verify if ransomware indicators exist (e.g., file encryption, ransom note, process execution).
+   - Identify the ransomware strain (e.g., LockBit, Ryuk, Conti) using **threat intelligence databases**.
+2. **Containment**
+   - **Isolate affected systems** (EDR containment, VLAN isolation, or NAC policy enforcement).
+   - Block external communications to **C2 servers (firewall updates, DNS sinkholing).**
+   - Disable compromised accounts and reset credentials.
+3. **Eradication & Recovery**
+   - Use **offline backups** to restore encrypted files (verifying backup integrity).
+   - Remove malware persistence mechanisms (bootkits, scheduled tasks, registry modifications).
+   - Conduct forensic analysis to prevent reinfection.
+4. **Lessons Learned & Reporting**
+   - Implement **application allowlisting** to prevent unauthorized executables.
+   - Improve **endpoint protection policies** and SIEM detection rules.
+   - Report ransomware incidents per **CISA and GDPR requirements**.
+
+---
+
+## **3. Insider Threat Playbook**
+
+### **Objective**
+Detect, investigate, and mitigate insider threats, including **data exfiltration, privilege abuse, and unauthorized access**.
+
+### **Detection Methods**
+- **DLP (Data Loss Prevention) Alerts:** Monitor for **sensitive data transfers (MITRE ATT&CK T1020, T1036).**
+- **User Behavior Analytics (UBA):** Detect **unusual access patterns, privilege escalation attempts**.
+- **SIEM & IAM Logs:** Identify **abnormal login behavior, excessive access requests**.
+- **Endpoint Monitoring:** Track unauthorized data copying to **USB, cloud storage, or personal email**.
+
+### **Incident Response Steps**
+1. **Detection & Identification**
+   - Investigate DLP alerts, **Active Directory logs, VPN access logs**.
+   - Conduct risk-based profiling of users engaging in abnormal activities.
+   - Verify if compromised credentials are being used for privilege escalation.
+2. **Containment**
+   - Restrict access to **critical systems and data**.
+   - Suspend the user’s account while the investigation is conducted.
+   - Block exfiltration channels (email, cloud, removable storage).
+3. **Eradication & Recovery**
+   - **Reset passwords and enforce MFA**.
+   - Remove unauthorized access to sensitive resources.
+   - Improve insider threat detection rules in **SIEM and UEBA tools**.
+4. **Lessons Learned & Reporting**
+   - Conduct a **forensic review of account activity**.
+   - Strengthen **least privilege and Zero Trust policies**.
+   - Report incidents according to **ISO 27001, PCI DSS, and NIST guidelines**.
+
+---
+
+## **Alignment with Security Standards**
+The detection and response strategies outlined in these playbooks align with:
+
+| **Security Framework** | **Relevant Section** |
+|-----------------|-------------------------|
+| **NIST 800-61** | Incident Handling Phases |
+| **MITRE ATT&CK** | Tactics, Techniques & Procedures |
+| **ISO 27035** | Security Incident Management |
+| **CIS Controls** | Continuous Monitoring, Incident Response |
+| **PCI DSS** | Data Security & Response Procedures |
+
+---

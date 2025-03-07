@@ -1,0 +1,129 @@
+# Building a 24/7 Security Operations Center (SOC)
+
+## SOC Architecture & Infrastructure
+
+A **24/7 Security Operations Center (SOC)** is the backbone of an organization’s cybersecurity posture. It consists of **people, processes, and technologies** working together to detect, analyze, and respond to cyber threats in real-time. Below is a detailed breakdown of its **architecture and infrastructure** components.
+
+---
+
+## **1. Core Components of a 24/7 SOC**
+
+### **1.1 Security Information and Event Management (SIEM)**
+A **SIEM** is the heart of a SOC, collecting and analyzing logs from multiple sources to detect security incidents. 
+
+✅ **Key Responsibilities:**
+- Aggregating logs from **network devices, servers, cloud environments, and endpoints**.
+- Correlating events to detect patterns indicative of threats.
+- Generating alerts and providing forensic capabilities.
+
+🔹 **Top SIEM Solutions:**
+- **Splunk** (Enterprise SIEM & Security Analytics)
+- **IBM QRadar** (Advanced Threat Intelligence)
+- **Microsoft Sentinel** (Cloud-native SIEM)
+- **Elastic Security** (Open-source SIEM with analytics)
+
+### **1.2 Security Orchestration, Automation, and Response (SOAR)**
+A **SOAR** platform automates incident response, reducing **MTTD (Mean Time to Detect) and MTTR (Mean Time to Respond).**
+
+✅ **Key Responsibilities:**
+- Automating repetitive security tasks (e.g., blocking malicious IPs, isolating endpoints).
+- Integrating with **SIEM, EDR, and IDS/IPS**.
+- Playbook-driven response workflows.
+
+🔹 **Top SOAR Solutions:**
+- **Splunk SOAR (Phantom)**
+- **Cortex XSOAR**
+- **IBM Resilient**
+- **Microsoft Sentinel Playbooks**
+
+### **1.3 Endpoint Detection & Response (EDR/XDR)**
+EDR provides deep visibility into endpoint activity, allowing real-time threat detection and response.
+
+✅ **Key Responsibilities:**
+- Detecting **fileless malware, ransomware, and insider threats**.
+- Providing detailed forensic analysis and threat intelligence.
+- Quarantine and remediation capabilities.
+
+🔹 **Top EDR/XDR Solutions:**
+- **CrowdStrike Falcon** (Cloud-based EDR)
+- **Microsoft Defender for Endpoint** (Windows-native EDR)
+- **SentinelOne** (Autonomous AI-driven detection)
+- **Palo Alto Cortex XDR** (Extended detection & response)
+
+### **1.4 Intrusion Detection & Prevention System (IDS/IPS)**
+IDS/IPS solutions **monitor network traffic** for malicious activities and prevent cyber attacks.
+
+✅ **Key Responsibilities:**
+- Detecting suspicious patterns in network traffic.
+- Preventing malware infections and command-and-control (C2) communications.
+- Providing real-time alerts and forensic logs.
+
+🔹 **Top IDS/IPS Solutions:**
+- **Snort (Open-source IDS/IPS)**
+- **Cisco Firepower**
+- **Palo Alto Threat Prevention**
+- **Suricata (High-performance IDS/IPS)**
+
+### **1.5 Threat Intelligence Feeds & Platforms**
+A **threat intelligence (TI) platform** enhances threat detection by **ingesting real-time feeds from global security sources.**
+
+✅ **Key Responsibilities:**
+- Enriching alerts with contextual threat data.
+- Detecting **Indicators of Compromise (IOCs)**.
+- Reducing false positives using behavioral analytics.
+
+🔹 **Top Threat Intelligence Platforms:**
+- **Recorded Future** (AI-driven threat intelligence)
+- **AlienVault OTX** (Open-source threat feed)
+- **IBM X-Force Exchange** (Global threat database)
+- **MISP (Malware Information Sharing Platform)**
+
+### **1.6 Log Management & Data Retention**
+A **long-term log retention strategy** is crucial for forensic investigations and regulatory compliance.
+
+✅ **Key Responsibilities:**
+- Storing security logs for **6 months – 7 years** (depending on regulations).
+- Ensuring **log integrity and encryption**.
+- Supporting compliance requirements like **ISO 27001, NIST, GDPR, HIPAA**.
+
+🔹 **Top Log Management Solutions:**
+- **Splunk** (Enterprise log aggregation)
+- **Graylog** (Open-source logging)
+- **Elastic Stack (ELK)** (Scalable log management)
+
+---
+
+## **2. SOC Network Architecture**
+A **SOC network architecture** must be **highly resilient, segmented, and redundant** to ensure **continuous monitoring** and **threat detection**.
+
+### **2.1 Core SOC Infrastructure Design**
+📌 **Key Components:**
+- **Tiered Network Segmentation** (SOC, DMZ, Corporate, OT/ICS Segments)
+- **Redundant SIEM & Data Storage Nodes**
+- **Zero Trust Security Controls**
+- **24/7 Monitoring Dashboards**
+
+### **2.2 High Availability (HA) & Redundancy**
+- **SOC should have primary and secondary data centers.**
+- **Use multi-cloud SIEM for resilience.**
+- **Backup security logs and forensic data in separate locations.**
+
+---
+
+## **3. SOC Infrastructure Diagram**
+*A visual representation of the SOC architecture, showing SIEM, SOAR, EDR, IDS/IPS, and Threat Intelligence Feeds.*
+
+*(Diagram Placeholder: To be included in assets/diagrams/)*
+
+---
+
+## **4. SOC Deployment Best Practices**
+
+📌 **Security Principles for SOC Design:**
+✔ **Defense in Depth (DiD)** – Multiple layers of security controls.
+✔ **Zero Trust** – Verify every access request.
+✔ **Least Privilege Access** – Minimize user permissions.
+✔ **Continuous Monitoring** – 24/7 log analysis & alerting.
+✔ **Automated Incident Response** – SOAR playbooks & workflows.
+✔ **Threat Hunting Capabilities** – Proactively searching for threats.
+✔ **Compliance Alignment** – SOC aligned with NIST, ISO 27001, and other frameworks.

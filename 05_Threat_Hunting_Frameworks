@@ -1,0 +1,133 @@
+# Threat Hunting Frameworks (Splunk, CrowdStrike, Elastic)
+
+## **Objective:**
+Threat hunting is a proactive cybersecurity process that involves **detecting, investigating, and responding to advanced threats** that evade traditional security solutions.
+
+This document defines **Threat Hunting Frameworks** for **Splunk, CrowdStrike, and Elastic**, aligned with **MITRE ATT&CK, NIST 800-61, and ISO/IEC 27035**.
+
+---
+
+## **1. Threat Hunting Methodology**
+
+### **Hunting Approaches:**
+| **Approach** | **Description** |
+|-------------|----------------|
+| **Intel-driven** | Uses threat intelligence feeds (IOCs, TTPs) to guide investigations. |
+| **Hypothesis-based** | Analysts create hypotheses based on attacker behaviors (MITRE ATT&CK). |
+| **Anomaly-based** | Uses statistical analysis and machine learning to detect deviations from baselines. |
+| **Hybrid** | A combination of intelligence, hypothesis-driven, and anomaly-based techniques. |
+
+### **Key Threat Hunting Metrics:**
+| **Metric** | **Description** |
+|-----------|----------------|
+| **Time to Hunt (TTH)** | The time it takes to complete a proactive hunt. |
+| **Detection Rate** | Percentage of hunts resulting in actionable detections. |
+| **False Positive Rate** | Ratio of false positives to true positives in hunt findings. |
+| **Mean Time to Investigate (MTTI)** | Time taken to analyze potential threats. |
+
+---
+
+## **2. Splunk Threat Hunting Framework**
+
+### **Use Case: Detecting Suspicious PowerShell Activity**
+**MITRE ATT&CK Mapping:** Execution (T1059)
+
+#### **Splunk Query (SPL):**
+```spl
+index=windows EventCode=4104
+| search ScriptBlockText="*Invoke-Mimikatz*" OR ScriptBlockText="*System.Management.Automation*"
+| stats count by host, user, ScriptBlockText
+```
+**Response:**
+- Alert SOC analysts for review.
+- Isolate affected hosts using SOAR integration.
+- Block malicious PowerShell scripts.
+
+### **Use Case: Lateral Movement via RDP**
+**MITRE ATT&CK Mapping:** Lateral Movement (T1021.001)
+
+#### **Splunk Query (SPL):**
+```spl
+index=windows EventCode=4624 LogonType=10
+| stats count by host, user, src_ip
+| where count > 5
+```
+**Response:**
+- Investigate unusual logins from multiple systems.
+- Terminate suspicious RDP sessions.
+- Restrict network access.
+
+---
+
+## **3. CrowdStrike Threat Hunting Framework**
+
+### **Use Case: Detecting Credential Dumping**
+**MITRE ATT&CK Mapping:** Credential Dumping (T1003)
+
+#### **CrowdStrike Query:**
+```sql
+EventType=ProcessRollup2 
+AND (ImageFileName="*lsass.exe*" AND ParentImageFileName!="*winlogon.exe*")
+```
+**Response:**
+- Terminate suspicious LSASS processes.
+- Isolate compromised endpoints.
+- Notify SOC for deeper analysis.
+
+### **Use Case: Malware Execution via Suspicious File Paths**
+**MITRE ATT&CK Mapping:** Execution (T1204)
+
+#### **CrowdStrike Query:**
+```sql
+EventType=ProcessRollup2 
+AND (ImageFileName="*temp\*.exe*" OR ImageFileName="*AppData\Roaming\*.exe*")
+```
+**Response:**
+- Block execution of unknown executables.
+- Hunt for similar malware patterns.
+- Deploy EDR remediation actions.
+
+---
+
+## **4. Elastic (ELK) Threat Hunting Framework**
+
+### **Use Case: Detecting Anomalous DNS Requests**
+**MITRE ATT&CK Mapping:** Command & Control (T1071)
+
+#### **Kibana Query (Lucene):**
+```json
+source.ip: * AND dns.question.name: "*.onion" OR dns.question.name: "*.xyz"
+```
+**Response:**
+- Block outbound connections to malicious domains.
+- Investigate associated processes and network activity.
+
+### **Use Case: Persistence via Scheduled Tasks**
+**MITRE ATT&CK Mapping:** Persistence (T1053)
+
+#### **Kibana Query (Lucene):**
+```json
+process.name: "schtasks.exe" AND process.args: "*create*"
+```
+**Response:**
+- Audit newly created scheduled tasks.
+- Identify unusual execution patterns.
+- Remove unauthorized scheduled tasks.
+
+---
+
+## **5. Threat Hunting Best Practices**
+
+### **Standardized Hunting Process (Based on NIST & ISO/IEC 27035)**
+1. **Define the Hypothesis** → Identify potential attacker behaviors.
+2. **Collect & Enrich Data** → Use SIEM, EDR, and threat intel feeds.
+3. **Analyze & Identify Anomalies** → Apply advanced analytics.
+4. **Investigate & Validate** → Correlate findings with MITRE ATT&CK.
+5. **Respond & Mitigate** → Automate response actions and isolate threats.
+6. **Report & Improve** → Document findings and refine techniques.
+
+### **Key Recommendations:**
+- Automate repetitive threat hunting tasks.
+- Align hunts with adversary TTPs.
+- Integrate hunting findings into incident response workflows.
+- Leverage machine learning for anomaly detection.

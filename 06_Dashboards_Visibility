@@ -1,0 +1,86 @@
+# SOC Dashboards for Real-Time Threat Visibility
+
+## **Objective:**
+Develop **real-time SOC dashboards** to enhance visibility into security threats, streamline incident response, and support data-driven decision-making. This document outlines **key dashboard components**, **best practices**, and **queries for Splunk, CrowdStrike, and Elastic (ELK).**
+
+---
+
+## **1. Key SOC Dashboard Components**
+
+### **1.1 Security Metrics & Key Performance Indicators (KPIs)**
+| **Metric** | **Description** | **Dashboard Visualization** |
+|-----------|---------------|----------------------------|
+| **MTTD (Mean Time to Detect)** | Average time taken to detect incidents. | Line graph, trend analysis. |
+| **MTTR (Mean Time to Respond)** | Average time taken to contain and mitigate incidents. | Time-series chart. |
+| **Incident Volume** | Total security incidents detected. | Bar chart (by severity). |
+| **False Positive Rate** | Ratio of false positives to total alerts. | Percentage gauge. |
+| **Threat Intelligence Feeds** | Active threat indicators from CTI sources. | Table view with severity levels. |
+| **User Behavior Anomalies** | Suspicious user activities detected via UEBA. | Heatmap. |
+| **Top Attack Vectors** | Most common threat types (e.g., phishing, malware). | Pie chart. |
+| **Endpoint Health Status** | EDR detection and remediation insights. | Map visualization. |
+
+---
+
+## **2. Splunk SOC Dashboard Queries**
+
+### **2.1 Suspicious PowerShell Activity**
+```spl
+index=windows EventCode=4104
+| search ScriptBlockText="*Invoke-Mimikatz*" OR ScriptBlockText="*System.Management.Automation*"
+| stats count by host, user, ScriptBlockText
+```
+
+### **2.2 Unusual Login Locations**
+```spl
+index=auth_logs sourcetype=linux_secure OR sourcetype=windows_auth
+| iplocation src_ip
+| stats count by user, src_ip, Country
+| where count > 3
+```
+
+### **2.3 Phishing Email Analysis**
+```spl
+index=email_logs
+| search "Subject: Urgent Action Required" OR "Subject: Account Suspended"
+| stats count by sender_domain, recipient
+```
+
+---
+
+## **3. CrowdStrike Falcon SOC Dashboard Queries**
+
+### **3.1 Malware Execution Monitoring**
+```sql
+EventType=ProcessRollup2 
+AND (ImageFileName="*AppData\Roaming\*.exe*" OR ImageFileName="*temp\*.exe*")
+```
+
+### **3.2 Brute Force Attack Detection**
+```sql
+EventType=AuthAttempt 
+AND EventResult="Failed" 
+AND count(EventResult) > 5
+```
+
+---
+
+## **4. Elastic (ELK) SOC Dashboard Queries**
+
+### **4.1 DNS Query Monitoring for Malicious Domains**
+```json
+source.ip: * AND dns.question.name: "*.onion" OR dns.question.name: "*.xyz"
+```
+
+### **4.2 Endpoint Detection and Response (EDR) Logs**
+```json
+process.name: "mimikatz.exe" OR process.name: "powershell.exe" AND process.args: "invoke-mimikatz"
+```
+
+---
+
+## **5. SOC Dashboard Best Practices**
+- **Data Correlation:** Integrate multiple sources (SIEM, EDR, Threat Intelligence) for a holistic view.
+- **Real-Time Alerting:** Enable auto-escalation for high-severity threats.
+- **Customization:** Tailor dashboards for SOC roles (analysts, threat hunters, managers).
+- **User Behavior Analytics (UBA):** Track anomalies in login attempts, access patterns, and privilege escalations.
+- **Automated Response Playbooks:** Embed SOAR automation for quicker incident containment.
